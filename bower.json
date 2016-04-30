@@ -1,0 +1,22 @@
+{
+  "name": "AgendaLumen",
+  "description": "Agenda de Contatos",
+  "main": "",
+  "authors": [
+    "Júnior Souto <jljunior3@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "font-awesome": "fontawesome#^4.6.1"
+  }
+}
