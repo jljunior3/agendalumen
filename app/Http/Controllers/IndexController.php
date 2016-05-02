@@ -2,10 +2,25 @@
 
 namespace AgendaLumen\Http\Controllers;
 
+use AgendaLumen\Entities\Pessoa;
+use Illuminate\Http\Request;
+
 class IndexController extends Controller
 {
-    public function index()
+    public function index($letra = "A")
     {
-        return view('agenda');
+        $pessoas = Pessoa::where('apelido', 'like' , $letra.'%')->get();
+        return view('agenda',compact('pessoas'));
     }
+
+    public function busca(Request $request)
+    {   $busca = $request->busca;
+        $pessoas = [];
+        if(!empty($busca)){
+            $pessoas = Pessoa::where('nome', 'like', "%{$busca}%")->orWhere('apelido','like',"%{$busca}%")->get();
+        }
+
+        return view('agenda',compact('pessoas'));
+    }
+    
 }
